@@ -4,12 +4,13 @@ import todoAPI from '../services/todoAPi';
 const TodoPage = (props) => {
 
     const [todoList, setTodoList] = useState(todoAPI.getTodos());
-    const [todo, setTodo] = useState([]);
+
+    const [newTodo, setNewTodo] = useState([]);
     
     const handleChange = ({currentTarget}) => {
-        setTodo([currentTarget.value]);
+        setNewTodo([currentTarget.value]);
     };
-
+  
     const handleDelete = k => {
         const copyTodoList= [...todoList]
         if (k !== -1) {
@@ -22,8 +23,8 @@ const TodoPage = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        if(todo[0] !== undefined && todo[0].length > 0) todoAPI.setTodo(todo);
-        if(todoList) setTodoList(todoList.concat(todo));
+        if(newTodo[0].length > 0) todoAPI.setTodo(newTodo);
+        if(todoList) setTodoList(todoList.concat(newTodo));
         setTodoList(todoAPI.getTodos());
     };
 
@@ -33,7 +34,8 @@ return (
             <div className="form-group">
             <label className="col-form-label col-form-label-lg" htmlFor="inputLarge">Ajouter une tâche</label>
              <input className="form-control form-control-lg"
-                     value={todo}
+                    name="content"
+                     value={newTodo}
                       type="text" 
                        placeholder="Exemple : Acheter du pain..." 
                        id="inputLarge"
@@ -43,11 +45,11 @@ return (
           </form>
         <ul >
           {todoList && (
-              todoList.map((todos, k)  =>  (
+              todoList.map((todo, k) =>  (
             <li key={k} >
              <div className="todo">
              <button onClick={() => handleDelete(k)} type="button" className="close" data-dismiss="alert">&times;</button>
-              <div className="btn btn-link">{todos}</div>
+              <p className="btn btn-link" >{todo}</p>
               </div>
             </li>
             ))

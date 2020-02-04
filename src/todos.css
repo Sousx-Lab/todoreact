@@ -44,8 +44,8 @@ ul li h2{
   font-weight:bold;
   padding-bottom:10px;
 }
+
 ul li p{
-  font-family:"Reenie Beanie",arial,sans-serif;
   font-size:180%;
 }
 ul li .todo{
@@ -85,7 +85,7 @@ ul li .todo:hover,ul li .todo:focus{
   -o-transform: scale(1.25);
   position:relative;
   z-index:5;
-  text-decoration: underline;
+
 }
 ol{text-align:center;}
 ol li{display:inline;padding-right:1em;}
