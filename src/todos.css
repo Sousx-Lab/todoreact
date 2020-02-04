@@ -20,7 +20,7 @@ ul{
   overflow:hidden;
   padding:3em;
 }
-ul li a {
+ul li .todo {
   text-decoration:none;
   color:#000;
   background:#ffc;
@@ -48,12 +48,12 @@ ul li p{
   font-family:"Reenie Beanie",arial,sans-serif;
   font-size:180%;
 }
-ul li a{
+ul li .todo{
   -webkit-transform: rotate(-6deg);
   -o-transform: rotate(-6deg);
   -moz-transform:rotate(-6deg);
 }
-ul li:nth-child(even) a{
+ul li:nth-child(even) .todo{
   -o-transform:rotate(4deg);
   -webkit-transform:rotate(4deg);
   -moz-transform:rotate(4deg);
@@ -61,7 +61,7 @@ ul li:nth-child(even) a{
   top:5px;
   background:#cfc;
 }
-ul li:nth-child(3n) a{
+ul li:nth-child(3n) .todo{
   -o-transform:rotate(-3deg);
   -webkit-transform:rotate(-3deg);
   -moz-transform:rotate(-3deg);
@@ -69,14 +69,14 @@ ul li:nth-child(3n) a{
   top:-5px;
   background:#ccf;
 }
-ul li:nth-child(5n) a{
+ul li:nth-child(5n) .todo{
   -o-transform:rotate(5deg);
   -webkit-transform:rotate(5deg);
   -moz-transform:rotate(5deg);
   position:relative;
   top:-10px;
 }
-ul li a:hover,ul li a:focus{
+ul li .todo:hover,ul li .todo:focus{
   box-shadow:10px 10px 7px rgba(0,0,0,.7);
   -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
   -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
@@ -85,7 +85,8 @@ ul li a:hover,ul li a:focus{
   -o-transform: scale(1.25);
   position:relative;
   z-index:5;
+  text-decoration: underline;
 }
 ol{text-align:center;}
 ol li{display:inline;padding-right:1em;}
-ol li a{color:#fff;}
+ol li .todo{color:#fff;}

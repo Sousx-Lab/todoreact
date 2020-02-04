@@ -22,10 +22,8 @@ const TodoPage = (props) => {
 
     const handleSubmit = event =>{
         event.preventDefault();
-        todoAPI.setTodo(todo);
-        if(todoList){
-            setTodoList(todoList.concat(todo));
-        }
+        if(todo[0] !== undefined && todo[0].length > 0) todoAPI.setTodo(todo);
+        if(todoList) setTodoList(todoList.concat(todo));
         setTodoList(todoAPI.getTodos());
     };
 
@@ -43,19 +41,18 @@ return (
                     /> 
                </div>
           </form>
-        <ul>
+        <ul >
           {todoList && (
               todoList.map((todos, k)  =>  (
-            <li key={k}>
-             <a href="#">
+            <li key={k} >
+             <div className="todo">
              <button onClick={() => handleDelete(k)} type="button" className="close" data-dismiss="alert">&times;</button>
-             <h2>Title #1</h2>
-              <p>{todos}</p>
-              </a>
+              <div className="btn btn-link">{todos}</div>
+              </div>
             </li>
             ))
           )}
-      </ul>
+        </ul>
      </>
    );
 } 
